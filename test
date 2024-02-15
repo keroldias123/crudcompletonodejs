@@ -1,0 +1,82 @@
+<script>
+  $(document).ready(function () {
+    // Função para enviar os dados do estudante via AJAX
+    function cadastrarEstudante() {
+      // Obtém os valores dos campos do formulário
+      const nome = $('#nome').val();
+      const turmaId = $('#turma').val();
+
+      // Cria um objeto com os dados do estudante
+      const estudanteData = {
+        nome: nome,
+        turmaId: turmaId
+      };
+
+      // Envia os dados do estudante via AJAX
+      $.ajax({
+        url: '/api/estudantes/add',
+        method: 'POST',
+        contentType: 'application/json', // Define o tipo de conteúdo como JSON
+        data: JSON.stringify(estudanteData), // Converte o objeto para JSON
+        success: function (response) {
+          console.log('Estudante adicionado com sucesso:', response);
+          // Limpa os campos do formulário após o envio bem-sucedido
+          $('#nome').val('');
+          $('#turma').val('');
+          // Aqui você pode adicionar lógica adicional, se necessário
+        },
+        error: function (err) {
+          console.error('Erro ao adicionar estudante:', err);
+        }
+      });
+    }
+
+    // Atribui a função ao evento onclick do botão "Salvar"
+    $('#botaoSalvar').click(cadastrarEstudante);
+  });
+</script>
+<script>
+  $(document).ready(function () {
+    // Função para enviar os dados do estudante via AJAX
+    function cadastrarEstudante() {
+      // Obtém os valores dos campos do formulário
+      const nome = $('#nome').val();
+      const turmaId = $('#turma').val();
+
+      // Cria um objeto com os dados do estudante
+      const estudanteData = {
+        nome: nome,
+        turmaId: turmaId
+      };
+
+      // Envia os dados do estudante via AJAX
+      $.ajax({
+        url: '/api/estudantes/add',
+        method: 'POST',
+        contentType: 'application/json', // Define o tipo de conteúdo como JSON
+        data: JSON.stringify(estudanteData), // Converte o objeto para JSON
+        success: function (response) {
+          console.log('Estudante adicionado com sucesso:', response);
+          // Limpa os campos do formulário após o envio bem-sucedido
+          $('#nome').val('');
+          $('#turma').val('');
+          // Aqui você pode adicionar lógica adicional, se necessário
+        },
+        error: function (err) {
+          console.error('Erro ao adicionar estudante:', err);
+        }
+      });
+    }
+
+    // Atribui a função ao evento onclick do botão "Salvar"
+    $('#botaoSalvar').click(cadastrarEstudante);
+  });
+</script>
+
+<script>
+  // Adiciona um ouvinte de evento para o botão
+  document.getElementById('exibirFormulario').addEventListener('click', function () {
+    // Mostra o formulário
+    document.getElementById('estudanteForm').style.display = 'block';
+  });
+</script>
